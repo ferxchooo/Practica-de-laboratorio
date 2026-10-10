@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de: Fernando Rodea Obregón</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Práctica de Laboratorio Fernando Rodea</h1>
+    </header>
+
+    <nav>
+        <button onclick="mostrarSeccion('edad')">Calculadora de Edad</button>
+        <button onclick="mostrarSeccion('temperatura')">Convertidor de Temperatura</button>
+        <button onclick="mostrarSeccion('tareas')">Gestor de Tareas</button>
+    </nav>
+
+    <main>
+        <div id="edad" class="seccion activa">
+            <h2>Calculadora de Edad</h2>
+            <p>Ingresa tu fecha de nacimiento:</p>
+            <div class="controles-form">
+                <select id="dia"></select>
+                <select id="mes"></select>
+                <select id="anio"></select>
+            </div>
+            <button onclick="calcularEdad()" class="btn-accion">Calcular</button>
+            <p id="resultadoEdad" class="resultado"></p>
+        </div>
+
+        <div id="temperatura" class="seccion">
+            <h2>Convertidor de Temperatura</h2>
+            <p>Ingresa la temperatura, selecciona las unidades y convierte</p>
+            <div class="controles-form">
+                <input type="number" id="valorTemp" placeholder="0.00" oninput="validarCamposTemp()">
+                <select id="unidadOrigen" onchange="validarCamposTemp()">
+                    <option value="">De Unidad</option>
+                    <option value="C">Celsius</option>
+                    <option value="F">Fahrenheit</option>
+                    <option value="K">Kelvin</option>
+                </select>
+                <select id="unidadDestino" onchange="validarCamposTemp()">
+                    <option value="">A Unidad</option>
+                    <option value="C">Celsius</option>
+                    <option value="F">Fahrenheit</option>
+                    <option value="K">Kelvin</option>
+                </select>
+                <button id="btnConvertir" class="btn-accion" onclick="convertirTemperatura()" disabled>Convertir</button>
+            </div>
+            <p id="resultadoTemp" class="resultado"></p>
+        </div>
+
+        <div id="tareas" class="seccion">
+            <h2>Gestor de Tareas</h2>
+            <div class="input-tarea-container">
+                <input type="text" id="inputTarea" placeholder="Empieza a escribir y presiona enter para crear una tarea" onkeypress="agregarTarea(event)">
+            </div>
+            <ul id="listaTareas"></ul>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
